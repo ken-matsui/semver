@@ -1,0 +1,7 @@
+name: semver
+version: 0.1.0
+cpp_version: 17
+description: "The semantic versioning parsing, comparison, and header-only library for C++. (requires C++17 or higher, the one poac uses)"
+owners:
+  - "matken11235"
+
