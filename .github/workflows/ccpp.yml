@@ -9,6 +9,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: find test
+      run: cmake .
     - name: Interval Test
       run: |
         g++ -std=c++17 -I/usr/local/include -I./include -lboost_unit_test_framework tests/interval.cpp -o interval
