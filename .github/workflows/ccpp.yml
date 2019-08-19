@@ -1,0 +1,34 @@
+name: C/C++ CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04]
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Interval Test
+      run: |
+        g++ -std=c++17 -I/usr/local/share/boost/1.69.0/include -I./include tests/interval.cpp -o interval
+        ./interval
+    - name: Lexer Test
+      run: |
+        g++ -std=c++17 -I/usr/local/share/boost/1.69.0/include -I./include tests/lexer.cpp -o lexer
+        ./lexer
+    - name: Parser Test
+      run: |
+        g++ -std=c++17 -I/usr/local/share/boost/1.69.0/include -I./include tests/parser.cpp -o parser
+        ./parser
+    - name: Token Test
+      run: |
+        g++ -std=c++17 -I/usr/local/share/boost/1.69.0/include -I./include tests/token.cpp -o token
+        ./token
+    - name: Version Test
+      run: |
+        g++ -std=c++17 -I/usr/local/share/boost/1.69.0/include -I./include tests/version.cpp -o version
+        ./version
