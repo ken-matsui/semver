@@ -1,0 +1,31 @@
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Interval Test
+      run: |
+        g++ -std=c++17 -I./include -lboost_unit_test_framework tests/interval.cpp -o interval
+        ./interval
+    - name: Lexer Test
+      run: |
+        g++ -std=c++17 -I./include -lboost_unit_test_framework tests/lexer.cpp -o lexer
+        ./lexer
+    - name: Parser Test
+      run: |
+        g++ -std=c++17 -I./include -lboost_unit_test_framework tests/parser.cpp -o parser
+        ./parser
+    - name: Token Test
+      run: |
+        g++ -std=c++17 -I./include -lboost_unit_test_framework tests/token.cpp -o token
+        ./token
+    - name: Version Test
+      run: |
+        g++ -std=c++17 -I./include -lboost_unit_test_framework tests/version.cpp -o version
+        ./version
