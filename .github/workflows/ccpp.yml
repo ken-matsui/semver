@@ -3,13 +3,8 @@ name: C/C++ CI
 on: [push, pull_request]
 
 jobs:
-  build:
-
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-18.04]
-    
+  build-on-ubuntu:
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
     - name: Interval Test
@@ -31,4 +26,31 @@ jobs:
     - name: Version Test
       run: |
         g++ -std=c++17 -I/usr/local/share/boost/1.69.0/include -I./include tests/version.cpp -o version
+        ./version
+        
+  build-on-macos:
+    runs-on: macOS-10.14
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Boost
+      run: brew install boost
+    - name: Interval Test
+      run: |
+        g++ -std=c++17 -I./include tests/interval.cpp -o interval
+        ./interval
+    - name: Lexer Test
+      run: |
+        g++ -std=c++17 -I./include tests/lexer.cpp -o lexer
+        ./lexer
+    - name: Parser Test
+      run: |
+        g++ -std=c++17 -I./include tests/parser.cpp -o parser
+        ./parser
+    - name: Token Test
+      run: |
+        g++ -std=c++17 -I./include tests/token.cpp -o token
+        ./token
+    - name: Version Test
+      run: |
+        g++ -std=c++17 -I./include tests/version.cpp -o version
         ./version
