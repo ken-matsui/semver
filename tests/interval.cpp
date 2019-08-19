@@ -1,5 +1,5 @@
-#define BOOST_TEST_MODULE test_module
-#include <boost/test/unit_test.hpp>
+#define BOOST_TEST_MAIN
+#include <boost/test/included/unit_test.hpp>
 
 #include <semver/semver.hpp>
 
