@@ -13,7 +13,7 @@ jobs:
       run: ls /usr/local/share/boost/1.69.0/lib
     - name: Interval Test
       run: |
-        g++ -std=c++17 -I/usr/local/share/boost/1.69.0/include -L/usr/local/share/boost/1.69.0/lib -I./include -lboost_unit_test_framework-mt-s-x64 tests/interval.cpp -o interval
+        g++ -std=c++17 -I/usr/local/share/boost/1.69.0/include -L/usr/local/share/boost/1.69.0/lib -I./include -lboost_unit_test_framework-mt-sd-x64 tests/interval.cpp -o interval
         ./interval
     - name: Lexer Test
       run: |
