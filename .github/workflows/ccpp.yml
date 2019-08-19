@@ -11,11 +11,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: ls
       run: ls /usr/local/share/boost/1.69.0/lib
-    - name: ls
-      run: ls /usr/local/share/boost/1.69.0/libs
     - name: Interval Test
       run: |
-        g++ -std=c++17 -I/usr/local/share/boost/1.69.0/include -L/usr/local/share/boost/1.69.0/lib -I./include -lboost_unit_test_framework-mt-x64 tests/interval.cpp -o interval
+        g++ -std=c++17 -I/usr/local/share/boost/1.69.0/include -L/usr/local/share/boost/1.69.0/lib -I./include -lboost_unit_test_framework-mt-d-x64 tests/interval.cpp -o interval
         ./interval
     - name: Lexer Test
       run: |
