@@ -1,4 +1,4 @@
-# semver
+# semver ![GitHub Actions](https://github.com/matken11235/semver/workflows/C%2FC%2B%2B%20CI/badge.svg)
 **TODO: Add description**
 
 ---
